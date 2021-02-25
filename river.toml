@@ -1,0 +1,75 @@
+# MySQL address, user and password
+# user must have replication privilege in MySQL.
+my_addr = "192.168.1.240:3306"
+my_user = "root"
+my_pass = "NS@2017"
+my_charset = "utf8"
+server_id = 1001
+data_dir = "F:/data"
+mysqldump="mysqldump"
+
+# Set true when apatoton use https
+# https = false
+# apatodon address
+addr = "192.168.1.199:8072"
+# apatodon user and password
+user = "admin"
+pass = "12345678"
+url="api/v4/login"
+sourceType=21301
+
+[[source]]
+schema = "apatodon_xgyjy_mj"
+
+tables = ["vehicle","vehicle_traffic_area"]
+
+[[rule]]
+schema = "apatodon_xgyjy_mj"
+table = "vehicle"
+index = "api/v5/sync"
+type = "vehicles"
+
+[rule.field]
+# Map column `person_id` to apatodon field `personId"`
+person_id="personId"
+# Map column `person_name` to apatodon field `personName`
+person_name="personName"
+# Map column `team_id` to apatodon field `teamId`
+team_id="teamId"
+# Map column `team_name` to apatodon field `teamName`
+team_name="teamName"
+# Map column `car_type` to apatodon field `carType`
+car_type="carType"
+# Map column `charge_type` to apatodon field `chargeType`
+charge_type="chargeType"
+# Map column `plate_color` to apatodon field `plateColor`
+plate_color="plateColor"
+# Map column `effectived` to apatodon field `effectived`
+effectived="effectived"
+# Map column `expired` to apatodon field `expired`
+expired="expired"
+# Map column `buket_id` to apatodon field `buket_id`
+buket_id="buketId"
+# Map column `sync_flag` to apatodon field `syncFlag`
+sync_flag="syncFlag"
+# Map column `cluster_id` to apatodon field `clusterId`
+cluster_id="clusterId"
+
+
+[[rule]]
+schema = "apatodon_xgyjy_mj"
+table = "vehicle_traffic_area"
+index = "api/v5/sync"
+type = "trafficareas"
+
+[rule.field]
+# Map column `vehicle_id` to apatodon field `vehicleId"`
+vehicle_id="vehicleId"
+# Map column `area_id` to apatodon field `areaId`
+area_id="areaId"
+# Map column `area_name` to apatodon field `areaName`
+area_name="areaName"
+# Map column `cluster_id` to apatodon field `clusterId`
+cluster_id="clusterId"
+# Map column `sync_flag` to apatodon field `syncFlag`
+sync_flag="syncFlag"
